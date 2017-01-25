@@ -1,0 +1,18 @@
+"3.9 (created: 2015/02/15 15:49:05)
+
+source! /home/shane/.vimperatorrc.local
+
+noremap J gT
+noremap K gt
+
+
+noremap j 5j
+noremap k 10k
+
+set gui=none
+
+" set ds=yubnub
+
+" vim: set ft=vimperator:
+
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
