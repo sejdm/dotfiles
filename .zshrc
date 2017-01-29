@@ -231,7 +231,7 @@ alias -s html=firefox
 alias -s org=firefox
 
 
-command_not_found_handler(){wyrd -a "$*" 2>/dev/null || fo $* || (echo "what is $*?" | grep "$*")}
+command_not_found_handler(){fo $* || (echo "what is $*?" | grep "$*")}
 filestore(){Files=$(cat); echo $Files}
 emailstore(){Emails=$(cat); echo $Emails}
 store(){eval "$1=\$(cat)"; Last=$1; eval echo \$$1}
@@ -245,6 +245,7 @@ alias smith="grep -vn '^$' ~/Documents/LBooks/Adam\ Smith\ Wealth\ of\ Nations.t
 
 ###syntax highlighting
 #source $HOME/.myzshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
@@ -255,6 +256,7 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white'
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=white'
+
 
 ## Stopping certain autocorrects
 alias frasier="nocorrect frasier"
@@ -334,7 +336,7 @@ alias mute="vol 0%"
 alias betty="~/betty/main.rb"
 
 export NO_AT_BRIDGE=1
-source ~/.zshenv
+#source ~/.zshenv
 
 
 sl(){rm -f /tmp/ramdisk/results.tex; cat ~/bin/latexPreamble.tex <(searchlatex $*) ~/bin/latexPostamble.tex>/tmp/ramdisk/results.tex; (cd /tmp/ramdisk; pdflatex results.tex &>/dev/null; zathura results.pdf 2>/dev/null) }
