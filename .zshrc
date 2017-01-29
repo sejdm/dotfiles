@@ -244,7 +244,7 @@ alias wilde="shuf -n 1 $HOME/wilde"
 alias smith="grep -vn '^$' ~/Documents/LBooks/Adam\ Smith\ Wealth\ of\ Nations.txt| shuf -n 1"
 
 ###syntax highlighting
-source $HOME/.myzshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $HOME/.myzshplugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
