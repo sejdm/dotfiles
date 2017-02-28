@@ -1,0 +1,200 @@
+URxvt.termName: rxvt-256color
+URxvt.internalBorder: 0
+! URxvt.font: xft:inconsolata:pixelsize=14
+
+!URxvt*font: xft:inconsolata:size=13, \
+URxvt*font: xft:DejaVu Sans Mono:style=Book:antialias=false:size=10, \
+            xft:WenQuanYi Bitmap Song:size=13, \
+            xft:FreeSerif:style=Regular:size=13, \
+            xft:unifont:style=Medium:antialias=false
+            xft:Ubuntu Mono:pixelsize=18:antialias=true:hinting=true,\
+            xft:Source Code Pro:pixelsize=18:style=medium:antialias=true,\
+            -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+! Fix font space
+URxvt*letterSpace: -1
+
+urxvt*shading: 15
+
+! urxvt*foreground: #FFFFFF
+! urxvt*background: #000000
+URxvt.scrollBar: false
+
+! *color0:  #2E3436
+! *color1:  #a40000
+! *color2:  #4E9A06
+! *color3:  #C4A000
+! *color4:  #3465A4
+! *color5:  #75507B
+! *color6:  #ce5c00
+! *color7:  #babdb9
+! *color8:  #555753
+! *color9:  #EF2929
+! *color10: #8AE234
+! *color11: #FCE94F
+! *color12: #729FCF
+! *color13: #AD7FA8
+! *color14: #fcaf3e
+! *color15: #EEEEEC
+
+!
+! Generated with :
+! XRDB2Xreources.py
+!
+*.foreground:  #232322
+*.background:  #eaeaea
+*.cursorColor: #16afca
+!
+! Black
+*.color0:      #212121
+*.color8:      #424242
+!
+! Red
+*.color1:      #b7141f
+*.color9:      #e83b3f
+!
+! Green
+*.color2:      #457b24
+*.color10:     #7aba3a
+!
+! Yellow
+*.color3:      #f6981e
+*.color11:     #ffea2e
+!
+! Blue
+*.color4:      #134eb2
+*.color12:     #54a4f3
+!
+! Magenta
+*.color5:      #560088
+*.color13:     #aa4dbc
+!
+! Cyan
+*.color6:      #0e717c
+*.color14:     #26bbd1
+!
+! White
+*.color7:      #efefef
+*.color15:     #d9d9d9
+!
+! Bold, Italic, Underline
+*.colorBD:     #b7141f
+!*.colorIT:
+!*.colorUL:
+! Atom One Light theme
+! urxvt*background: #f9f9f9
+! urxvt*foreground: #383a42
+! urxvt*cursorColor: #d0d0d0
+! urxvt*color0: #000000
+! urxvt*color1: #E45649
+! urxvt*color2: #50A14F
+! urxvt*color3: #986801
+! urxvt*color4: #4078F2
+! urxvt*color5: #A626A4
+! urxvt*color6: #0184BC
+! urxvt*color7: #A0A1A7
+! urxvt*color8: #5c6370
+! urxvt*color9: #e06c75
+! urxvt*color10: #50A14F
+! urxvt*color11: #986801
+! urxvt*color12: #4078F2
+! urxvt*color13: #A626A4
+! urxvt*color14: #0184BC
+! urxvt*color15: #ffffff
+! 
+
+! #define S_base03        #002b36
+! #define S_base02        #073642
+! #define S_base01        #586e75
+! #define S_base00        #657b83
+! #define S_base0         #839496
+! #define S_base1         #93a1a1
+! #define S_base2         #eee8d5
+! #define S_base3         #fdf6e3
+! 
+! *background:            S_base3
+! *foreground:            S_base00
+! *fadeColor:             S_base3
+! *cursorColor:           S_base01
+! *pointerColorBackground:S_base1
+! *pointerColorForeground:S_base01
+! 
+! #define S_yellow        #b58900
+! #define S_orange        #cb4b16
+! #define S_red           #dc322f
+! #define S_magenta       #d33682
+! #define S_violet        #6c71c4
+! #define S_blue          #268bd2
+! #define S_cyan          #2aa198
+! #define S_green         #859900
+! 
+! !! black dark/light
+! *color0:                S_base02
+! *color8:                S_base03
+! 
+! !! red dark/light
+! *color1:                S_red
+! *color9:                S_orange
+! 
+! !! green dark/light
+! *color2:                S_green
+! *color10:               S_base01
+! 
+! !! yellow dark/light
+! *color3:                S_yellow
+! *color11:               S_base00
+! 
+! !! blue dark/light
+! *color4:                S_blue
+! *color12:               S_base0
+! 
+! !! magenta dark/light
+! *color5:                S_magenta
+! *color13:               S_violet
+! 
+! !! cyan dark/light
+! *color6:                S_cyan
+! *color14:               S_base1
+! 
+! !! white dark/light
+! *color7:                S_base2
+! *color15: S_base3
+
+
+! ! special
+! *.foreground:   #c5c8c6
+! *.background:   #1d1f21
+! *.cursorColor:  #c5c8c6
+! 
+! ! black
+! *.color0:       #282a2e
+! *.color8:       #373b41
+! 
+! ! red
+! *.color1:       #a54242
+! *.color9:       #cc6666
+! 
+! ! green
+! *.color2:       #8c9440
+! *.color10:      #b5bd68
+! 
+! ! yellow
+! *.color3:       #de935f
+! *.color11:      #f0c674
+! 
+! ! blue
+! *.color4:       #5f819d
+! *.color12:      #81a2be
+! 
+! ! magenta
+! *.color5:       #85678f
+! *.color13:      #b294bb
+! 
+! ! cyan
+! *.color6:       #5e8d87
+! *.color14:      #8abeb7
+! 
+! ! white
+! *.color7:       #707880
+! *.color15:      #c5c8c6
