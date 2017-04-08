@@ -16,11 +16,19 @@ call plug#begin('~/.vim/plugged')
 "Plug 'garbas/vim-snipmate'
 
 "Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/SyntaxRange'
+Plug 'mattn/calendar-vim'
 Plug 'therubymug/vim-pyte'
 Plug 'thinca/vim-guicolorscheme'
 Plug 'endel/vim-github-colorscheme'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'honza/vim-snippets'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
+
+
+Plug 'FelikZ/ctrlp-py-matcher'
 "Plug 'SirVer/ultisnips'
 Plug 'ervandew/supertab'
 "Plug 'Shougo/unite.vim'
@@ -57,6 +65,7 @@ Plug 'bitc/vim-hdevtools'
 Plug 'jceb/vim-orgmode'
 "Plug 'hsitz/VimOrganizer'
 "Plug 'vimoutliner/vimoutliner'
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 ":Plug 'tpope/vim-speeddating'
 "Plug 'mikewest/vimroom'
@@ -176,7 +185,7 @@ endif
 " but does not automatically use 256 colors by default.
 set t_Co=256
 "set t_Co=88
-"let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
+let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : 'italic', 'sp' : '' }
 
 "highlight Function cterm=italic
 "highlight Function cterm=italic ctermfg=Blue
@@ -185,17 +194,33 @@ set t_Co=256
 "highlight Comment ctermfg=Grey
 "hi Conceal cterm=NONE ctermbg=NONE ctermfg=Black
 "colorscheme apprentice
-
-
-if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
-  " Use the guicolorscheme plugin to makes 256-color or 88-color
-  " terminal use GUI colors rather than cterm colors.
-  runtime! plugin/guicolorscheme.vim
-  GuiColorScheme pyte
-else
-  " For 8-color 16-color terminals or for gvim, just use the
-  " regular :colorscheme command.
-  colorscheme pyte
-endif
+"if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
+"  " Use the guicolorscheme plugin to makes 256-color or 88-color
+"  " terminal use GUI colors rather than cterm colors.
+"  runtime! plugin/guicolorscheme.vim
+"  set t_Co=256
+"  syntax enable
+"  let g:solarized_termtrans = 1                                                   
+"  let g:solarized_termcolors=256   
+"  GuiColorScheme pyte
+"else
+"  " For 8-color 16-color terminals or for gvim, just use the
+"  " regular :colorscheme command.
+"  colorscheme pyte
+"endif
 
 hi Conceal none
+map <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+"let g:solarized_termtrans=16
+"let g:solarized_visibility = "high"
+"let g:solarized_contrast = "high"
+"set background=dark
+"let g:solarized_termcolors=256
+"colorscheme solarized
+"colorscheme pyte
+highlight Comment cterm=italic
+highlight Structure cterm=bold ctermfg=green
+"highlight Include cterm=italic
+"set nocompatible                                           

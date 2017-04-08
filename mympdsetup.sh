@@ -1,4 +1,4 @@
-#!/bin/bash
+
 clear
 username=$(whoami)
 interface=`ip route show | cut -d ' ' -f 3 | head -1`
@@ -48,16 +48,16 @@ pid_file                         "$HOME/.mpd/pid"
 state_file                       "$HOME/.mpd/state"
 playlist_directory               "$HOME/.mpd/playlists"
 log_level                        "default"
-#password                        "password@read,add,control,admin"
-#default_permissions             "read,add,control,admin"
-#user                            "$username"
-#bind_to_address                 "$interface"
+
+
+
+
 bind_to_address                  "127.0.0.1"
 bind_to_address                  "$HOME/.mpd/socket"
 port                             "6600"
 gapless_mp3_playback             "yes"
 auto_update                      "yes"
-#auto_update_depth               "3"
+
 
 input {
         plugin                   "curl"
@@ -66,50 +66,50 @@ input {
         proxy_password           "password"
 }
 $AUDIO
-#audio_output {
-#               type             "alsa"
-#               name             "Alsa output"
-#               device           "hw:0,0"
-#               format           "44100:16:2"
-#               mixer_type       "hardware"
-#               mixer_device     "default"
-#               mixer_control    "PCM"
-#               mixer_index      "0"
-#}
-#audio_output {
-#               type             "httpd"
-#               name             "Internet Stream"
-#               encoder          "lame"
-#               port             "8000"
-#               bind_to_address  "192.168.1.13"
-#               quality          "5.0"
-#               bitrate          "128"
-#               format           "44100:16:1"
-#               max_clients      "3"
-#}
 
-#audio_output {
-#               type             "recorder"
-#               name             "My recorder"
-#               encoder          "vorbis"
-#               path             "/home/carnager/stream.ogg"
-#               quality          "7.0" # do not define if bitrate is defined
-#               bitrate          "128" # do not define if quality is defined
-#               format           "44100:16:1"
-#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 replaygain                       "album"
 replaygain_preamp                "0"
-#volume_normalization            "no"
-#audio_buffer_size               "2048"
-#buffer_before_play              "10%"
-#connection_timeout              "60"
-#max_connections                 "10"
-#max_playlist_length             "16384"
-#max_command_list_size           "2048"
-#max_output_buffer_size          "8192"
-#filesystem_charset              "UTF-8"
-#id3v1_encoding                  "ISO-8859-1"
+
+
+
+
+
+
+
+
+
+
 EOF
 	clear
 	cat <<EOF
@@ -117,7 +117,7 @@ EOF
 EOF
 echo "Trying to create systemd custom settings"
 echo "Root previlegs needed..."
-#export username="$(whoami)"; su -c "mkdir /etc/systemd/system/mpd.service.d && echo -e \"[Service]\nUser=$username\nPAMName=system-local-login\" > /etc/systemd/system/mpd.service.d/mpd.conf"
+
 export username="$(whoami)"; sudo mkdir /etc/systemd/system/mpd.service.d && sudo echo -e \"[Service]\nUser=$username\nPAMName=system-local-login\" > /etc/systemd/system/mpd.service.d/mpd.conf
 echo "Setup complete"
 echo " "
