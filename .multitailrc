@@ -1,0 +1,12 @@
+colorscheme:irc
+#cs_re:green:.*nion.*
+cs_re:yellow:http:\/\/[^ ]*
+cs_re:yellow:https:\/\/[^ ]*
+cs_re:cyan:-!-.*has joined #.*
+cs_re:blue:.*changed mode.*
+#cs_re:yellow:Did.not
+cs_re:red:<[^<>]*>
+cs_re:blue:[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9] [0-9][0-9]:[0-9][0-9]
+
+titlebar:%m %u@%h %f (%t) [%l]
+tail:/usr/bin/turbotail
