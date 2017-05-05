@@ -8,7 +8,7 @@
 
 /* static char font[] = "Liberation Mono:pixelsize=14:antialias=true:autohint=true"; */
 /*static char font[] = "DejaVu Sans Mono:style=Book:antialias=false:size=10";*/
-static char font[] = "Inconsolata:style=Regular:antialias=true:size=11.5";
+static char font[] = "Inconsolata:style=Regular:antialias=true:size=11.8";
 static int borderpx = 0;
 
 /*
@@ -85,12 +85,92 @@ static char termname[] = "st-256color";
  */
 static unsigned int tabspaces = 8;
 
+/* Terminal colors (16 first used in escape sequence) Embers Light */
+static const char *colornameemberslight[] = {
 
-/* Terminal colors (16 first used in escape sequence) */
+  /* 8 normal colors */
+  [0] = "#16130f", /* black   */
+  [1] = "#826d57", /* red     */
+  [2] = "#57826d", /* green   */
+  [3] = "#6d8257", /* yellow  */
+  [4] = "#6d5782", /* blue    */
+  [5] = "#82576d", /* magenta */
+  [6] = "#576d82", /* cyan    */
+  [7] = "#a39a90", /* white   */
 
+  /* 8 bright colors */
+  [8]  = "#5a5047", /* black   */
+  [9]  = "#826d57", /* red     */
+  [10] = "#57826d", /* green   */
+  [11] = "#6d8257", /* yellow  */
+  [12] = "#6d5782", /* blue    */
+  [13] = "#82576d", /* magenta */
+  [14] = "#576d82", /* cyan    */
+  [15] = "#dbd6d1", /* white   */
+
+  /* special colors */
+  [256] = "#dbd6d1", /* background */
+  [257] = "#433b32", /* foreground */
+};
+
+/* Terminal colors (16 first used in escape sequence) Praiso Light */
+static const char *colornamepraisolight[] = {
+
+  /* 8 normal colors */
+  [0] = "#2f1e2e", /* black   */
+  [1] = "#ef6155", /* red     */
+  [2] = "#48b685", /* green   */
+  [3] = "#fec418", /* yellow  */
+  [4] = "#06b6ef", /* blue    */
+  [5] = "#815ba4", /* magenta */
+  [6] = "#5bc4bf", /* cyan    */
+  [7] = "#a39e9b", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#776e71", /* black   */
+  [9]  = "#ef6155", /* red     */
+  [10] = "#48b685", /* green   */
+  [11] = "#fec418", /* yellow  */
+  [12] = "#06b6ef", /* blue    */
+  [13] = "#815ba4", /* magenta */
+  [14] = "#5bc4bf", /* cyan    */
+  [15] = "#e7e9db", /* white   */
+
+  /* special colors */
+  [256] = "#e7e9db", /* background */
+  [257] = "#4f424c", /* foreground */
+};
+
+/* Terminal colors (16 first used in escape sequence) Google Light */
+static const char *colornamegooglelight[] = {
+
+  /* 8 normal colors */
+  [0] = "#1d1f21", /* black   */
+  [1] = "#cc342b", /* red     */
+  [2] = "#198844", /* green   */
+  [3] = "#fba922", /* yellow  */
+  [4] = "#3971ed", /* blue    */
+  [5] = "#a36ac7", /* magenta */
+  [6] = "#3971ed", /* cyan    */
+  [7] = "#c5c8c6", /* white   */
+
+  /* 8 bright colors */
+  [8]  = "#969896", /* black   */
+  [9]  = "#cc342b", /* red     */
+  [10] = "#198844", /* green   */
+  [11] = "#fba922", /* yellow  */
+  [12] = "#3971ed", /* blue    */
+  [13] = "#a36ac7", /* magenta */
+  [14] = "#3971ed", /* cyan    */
+  [15] = "#ffffff", /* white   */
+
+  /* special colors */
+  [256] = "#ffffff", /* background */
+  [257] = "#373b41", /* foreground */
+};
 
 /* Solarized light Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
+static const char *colornamesolarizedlight[] = {
 
   /* 8 normal colors */
   [0] = "#002b36", /* black   */
@@ -146,7 +226,7 @@ static const char *colornametwilight[] = {
 };
 
 /* Monokai Terminal colors (16 first used in escape sequence) */
-static const char *colorname5[] = {
+static const char *colornamemonokai[] = {
 
   /* 8 normal colors */
   [0] = "#272822", /* black   */
@@ -202,7 +282,7 @@ static const char *colornamemocha[] = {
 };
 
 /* Solarized dark Terminal colors (16 first used in escape sequence) */
-static const char *colorname6[] = {
+static const char *colorname[] = {
 
   /* 8 normal colors */
   [0] = "#002b36", /* black   */
