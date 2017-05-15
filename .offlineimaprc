@@ -1,0 +1,45 @@
+[general]
+ui = ttyui
+accounts = Gmail
+
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+maxage = 10
+# Minutes between syncs
+autorefresh = 1
+# Quick-syncs do not update if the only changes were to IMAP flags.
+# autorefresh=0.5 together with quick=10 yields
+# 10 quick refreshes between each full refresh, with 0.5 minutes between every 
+# refresh, regardless of type.
+# status_backend = sqlite
+#quick = 5
+#postsynchook = ~/bin/notmuch-hook
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/OfflineMail/Gmail
+filename_use_mail_timestamp=yes
+
+[Repository Gmail-Remote]
+type = Gmail
+remoteuser = someone@gmail.com
+realdelete = no
+maxconnections = 3
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#folderfilter = lambda folder: folder in ['[Gmail]/All Mail', 'INBOX', '[Gmail]/Sent Mail']
+folderfilter = lambda folder: folder.startswith('[Gmail]/All Mail')
+#folderfilter = lambda folder: folder.startswith('INBOX')
+
+
+# Instead of closing the connection once a sync is complete, offlineimap will
+# send empty data to the server to hold the connection open. A value of 60
+# attempts to hold the connection for a minute between syncs (both quick and
+# autorefresh).This setting has no effect if autorefresh and holdconnectionopen
+# are not both set.
+keepalive = 60
+# OfflineIMAP normally closes IMAP server connections between refreshes if
+# the global option autorefresh is specified.  If you wish it to keep the
+# connection open, set this to true. This setting has no effect if autorefresh
+# is not set.
+holdconnectionopen = yes

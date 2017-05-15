@@ -1,0 +1,76 @@
+set realname = "thename"
+set from = "thename@gmail.com"
+set use_from = yes
+set envelope_from = yes
+set text_flowed=yes
+
+set smtp_url = "smtps://thename@gmail.com@smtp.gmail.com:465/"
+#set smtp_pass = "<gmail password>"
+set imap_user = "thename@gmail.com"
+#set imap_pass = "<gmail password>"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+[Gmail]/All Mail"
+#set spoolfile = "+INBOX"
+#mailboxes "+[Gmail]/TIFR"
+set ssl_force_tls = yes
+set header_cache = "/home/shane/.mutt/cache/headers"
+set message_cachedir="/home/shane/.mutt/cache/bodies"
+set certificate_file="/home/shane/.mutt/certificates"
+#set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+set copy=yes
+set record = "+[Gmail]/Sent Mail"
+set postponed = "+[Gmail]/Drafts"
+
+set sort=threads
+set sort_aux = 'last-date-received'
+set timeout=30
+
+set mailcap_path 	= ~/.mutt/mailcap
+
+source /home/shane/muttsolarized.muttrc
+# folder-hook . 'set read_inc=10000'
+set read_inc=10000
+#
+#
+#
+# G to get mail
+# bind index q imap-fetch-mail
+bind index G imap-fetch-mail
+set editor = "nvim -c 'set spell spelllang=en'"
+
+unset record
+set move = no
+set charset = "utf-8"
+
+# auto convert text/html MIME type to text/plain
+auto_view text/html
+# prefer plain text
+alternative_order text/plain text/enriched text/html
+
+
+set date_format="%d %b"
+# set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+set index_format="%d  %-30.30F  %s"
+set status_format="%n/%o %P"
+set help=no
+set print_command="muttprint"
+
+
+# These two lines appear to be needed on some Linux distros, like Arch Linux
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+macro index ga "<change-folder>=[Gmail]/All<tab><enter>" "Go to all mail" 
+macro index gs "<change-folder>=[Gmail]/Sent Mail<tab><enter>" "Go to all mail" 
+macro index gi "<change-folder>=INBOX<tab><enter>" "Go to all mail" 
+bind pager N search-opposite
+
+set alias_file=~/.mutt-alias
+source ~/.mutt-alias
+set query_command= "abook --mutt-query '%s'" 
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
+
+set display_filter=addmuttalias

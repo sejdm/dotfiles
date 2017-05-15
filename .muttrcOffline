@@ -1,0 +1,112 @@
+### save and sync my sent messages
+#set spoolfile='/home/shane/.mail/gmail/[Gmail].All Mail'
+set spoolfile='/home/shane/OfflineMail/Gmail/[Gmail].All Mail'
+#set spoolfile='/home/shane/.mail/gmail/Inbox'
+# set header cache
+set header_cache=/home/shane/Localmail/hcache
+# needed for maildir format
+set mbox_type=Maildir
+set folder=/home/shane/OfflineMail/Gmail/
+# IMAP and INBOX (this should map to any existing IMAP folders)
+mailboxes =INBOX \
+=Sent \
+=Drafts \
+=Junk \
+=Trash \
+=Lastfolder
+### BEGIN NOTMUCH-MUTT SETTINGS
+    macro index  \
+          "unset wait_key~/.mutt/mutt-notmuch.pl --prompt search~/.cache/mutt_results" \
+          "search mail (using notmuch)"
+    macro index  \
+          "unset wait_key~/.mutt/mutt-notmuch.pl thread~/.cache/mutt_resultsset wait_key" \
+          "search and reconstruct owning thread (using notmuch)"
+
+
+set realname = "thename"
+set from = "thename@gmail.com"
+set use_from = yes
+set envelope_from = yes
+
+set smtp_url = "smtps://thename@gmail.com@smtp.gmail.com:465/"
+#set smtp_pass = "<gmail password>"
+#set imap_user = "thename@gmail.com"
+#set imap_pass = "<gmail password>"
+#set folder = "imaps://imap.gmail.com:993"
+#set spoolfile = "+INBOX"
+#set ssl_force_tls = yes
+#set header_cache = "/home/shane/.mutt/cache/headers"
+#set message_cachedir="/home/shane/.mutt/cache/bodies"
+#set certificate_file="/home/shane/.mutt/certificates"
+#set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
+
+#set copy=yes
+#set record = "+[Gmail]/Sent Mail"
+#set postponed = "+[Gmail]/Drafts"
+
+set sort=threads
+set sort_aux = 'last-date-received'
+#set timeout=30
+
+source /home/shane/muttsolarized.muttrc
+
+#
+#
+#
+# G to get mail
+#bind index q imap-fetch-mail
+#bind index G imap-fetch-mail
+set editor = "nvim -c 'set spell spelllang=de,en'"
+#unset record
+#set move = no
+set charset = "utf-8"
+
+
+set date_format="%d %b"
+# set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+set index_format="%d  %-30.30F  %s"
+set status_format="%n/%o %P"
+set help=no
+set print_command="muttprint"
+
+# These two lines appear to be needed on some Linux distros, like Arch Linux
+#set ssl_starttls = yes
+#set ssl_force_tls = yes
+
+macro index ga "<change-folder>='[Gmail].All Mail'<tab><enter>" "Go to all mail" 
+
+set mailcap_path 	= ~/.mutt/mailcap
+
+#set pager="less -R"
+#set prompt_after=no
+auto_view text/html text/csv application/vnd.openxmlformats-officedocument.wordprocessingml.document application/pdf text/x-haskell
+alternative_order text/plain text/enriched text/html  # save html for last
+
+set text_flowed
+set alias_file=~/.mutt-alias
+source ~/.mutt-alias
+set query_command="abook --mutt-query '%s'" 
+macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && chromium-browser ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
+bind pager N search-opposite
+bind pager j next-line
+bind pager k previous-line
+
+#set virtual_spoolfile=yes
+#source ~/.mailboxes
+
+macro index <F8> \
+     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+     "notmuch: search mail"
+macro index <F9> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+     "notmuch: reconstruct thread"
+macro index <F6> \
+     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+     "notmuch: remove message from inbox"
+
+
+set display_filter=addmuttalias
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
+            "search mail (using notmuch)"

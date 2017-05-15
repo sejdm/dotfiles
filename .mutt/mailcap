@@ -1,0 +1,38 @@
+text/html; firefox %s
+# auto view using w3m
+#
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/x-haskell; pygmentize %s | less -R
+text/x-haskell; source-highlight -f esc256 -i %s; copiousoutput
+
+#application/octet-stream; less
+
+image/jpg; feh %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+image/jpeg; feh %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+image/pjpeg; feh %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+image/png; feh %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+image/gif; feh %s
+
+application/pdf; zathura %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+application/pdf; pdftotext %s -; copiousoutput;
+application/ps; zathura %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+application/djvu; zathura %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+application/msword; libreoffice %s; print=lp -d ShaneA463 -o sides=two-sided-long-edge -o media=a4 %s
+#application/vnd.ms-word.document.12; libreoffice %s; print=lp -d ShaneA463 -o 
+#sides=two-sided-long-edge -o media=a4 %s
+#application/vnd.openxmlformats-officedocument.wordprocessingml.document; cat 
+#%s|/usr/local/bin/docx2txt.pl; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; pandoc -s %s -t markdown; copiousoutput;
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice %s
+application/msword ; antiword %s ; copiousoutput;
+application/vnd.ms-excel; libreoffice %s
+
+audio/mp3; mpc add %s
+
+video/mp4; mpv %s
+video/mpeg; mpv %s
+
+
+text/csv; tabview %s
+text/csv; csvtool readable %s; copiousoutput
