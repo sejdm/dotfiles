@@ -23,14 +23,14 @@ mailboxes =INBOX \
           "search and reconstruct owning thread (using notmuch)"
 
 
-set realname = "thename"
-set from = "thename@gmail.com"
+set realname = "name"
+set from = "name@gmail.com"
 set use_from = yes
 set envelope_from = yes
 
-set smtp_url = "smtps://thename@gmail.com@smtp.gmail.com:465/"
+set smtp_url = "smtps://name@gmail.com@smtp.gmail.com:465/"
 #set smtp_pass = "<gmail password>"
-#set imap_user = "thename@gmail.com"
+#set imap_user = "name@gmail.com"
 #set imap_pass = "<gmail password>"
 #set folder = "imaps://imap.gmail.com:993"
 #set spoolfile = "+INBOX"
@@ -80,7 +80,7 @@ set mailcap_path 	= ~/.mutt/mailcap
 #set pager="less -R"
 #set prompt_after=no
 auto_view text/html text/csv application/vnd.openxmlformats-officedocument.wordprocessingml.document application/pdf text/x-haskell
-alternative_order text/plain text/enriched text/html  # save html for last
+alternative_order text/enriched text/html text/plain  # save html for last
 
 set text_flowed
 set alias_file=~/.mutt-alias

@@ -1,0 +1,23 @@
+browser "w3m -o auto_image=False"
+
+color background   default   default
+color listnormal   default   default
+color listfocus    red     default
+color listfocus_unread    red     default bold
+color info         blue   default
+color article      default   default
+
+# highlights
+highlight article "^(Title):.*$" blue default
+highlight article "https?://[^ ]+" red default
+highlight article "\\[image\\ [0-9]+\\]" green default
+
+auto-reload yes
+reload-time 30
+download-path ~/Podcasts
+player mpv
+
+macro y set browser "mpv %u"; open-in-browser ; set browser "w3m -o auto_image=False %u"
+macro d set browser "youtube-dl %u"; open-in-browser ; set browser "w3m -o auto_image=False %u"
+macro v set browser "firefox %u"; open-in-browser
+macro i set browser "feh %u"; open ; set browser "w3m -o auto_image=False %u"
