@@ -29,16 +29,6 @@ set use_from = yes
 set envelope_from = yes
 
 set smtp_url = "smtps://name@gmail.com@smtp.gmail.com:465/"
-#set smtp_pass = "<gmail password>"
-#set imap_user = "name@gmail.com"
-#set imap_pass = "<gmail password>"
-#set folder = "imaps://imap.gmail.com:993"
-#set spoolfile = "+INBOX"
-#set ssl_force_tls = yes
-#set header_cache = "/home/shane/.mutt/cache/headers"
-#set message_cachedir="/home/shane/.mutt/cache/bodies"
-#set certificate_file="/home/shane/.mutt/certificates"
-#set mbox="imaps://imap.gmail.com/[Gmail]/All Mail"
 
 #set copy=yes
 #set record = "+[Gmail]/Sent Mail"
@@ -48,7 +38,7 @@ set sort=threads
 set sort_aux = 'last-date-received'
 #set timeout=30
 
-source /home/shane/muttsolarized.muttrc
+# source /home/shane/muttsolarized.muttrc
 
 #
 #
@@ -110,3 +100,18 @@ macro index <F6> \
 set display_filter=addmuttalias
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py<enter><change-folder-readonly>~/.cache/mutt_results<enter>" \
             "search mail (using notmuch)"
+
+color index brightblue default "~P" # messages from me
+color index red default "~D" # deleted
+color index blue default "~N" # new messages
+color index brightmagenta default "~Q" # replied to
+color index brightwhite default "~U" # unread messages
+color index red default "~F" # flagged
+color index red default "~F" # flagged
+color indicator brightyellow default # current message
+
+color quoted blue default
+color quoted1 cyan default
+color quoted2 yellow default
+color quoted3 red default
+color quoted4  brightred default
