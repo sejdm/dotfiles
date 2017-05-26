@@ -1,12 +1,14 @@
 ### save and sync my sent messages
 #set spoolfile='/home/shane/.mail/gmail/[Gmail].All Mail'
-set spoolfile='/home/shane/OfflineMail/Gmail/[Gmail].All Mail'
 #set spoolfile='/home/shane/.mail/gmail/Inbox'
 # set header cache
 set header_cache=/home/shane/Localmail/hcache
 # needed for maildir format
-set mbox_type=Maildir
-set folder=/home/shane/OfflineMail/Gmail/
+#
+##set spoolfile='/home/shane/OfflineMail/Gmail/[Gmail].All Mail'
+##set mbox_type=Maildir
+##set folder=/home/shane/OfflineMail/Gmail/
+#
 # IMAP and INBOX (this should map to any existing IMAP folders)
 mailboxes =INBOX \
 =Sent \
@@ -23,16 +25,12 @@ mailboxes =INBOX \
           "search and reconstruct owning thread (using notmuch)"
 
 
-set realname = "name"
-set from = "name@gmail.com"
+set realname = "thename"
+set from = "thename@gmail.com"
 set use_from = yes
 set envelope_from = yes
 
-set smtp_url = "smtps://name@gmail.com@smtp.gmail.com:465/"
-
-#set copy=yes
-#set record = "+[Gmail]/Sent Mail"
-#set postponed = "+[Gmail]/Drafts"
+set smtp_url = "smtps://thename@gmail.com@smtp.gmail.com:465/"
 
 set sort=threads
 set sort_aux = 'last-date-received'
@@ -83,18 +81,24 @@ bind pager N search-opposite
 bind pager j next-line
 bind pager k previous-line
 
-#set virtual_spoolfile=yes
+set nm_default_uri = "notmuch:///home/shane/OfflineMailBak2"
+set virtual_spoolfile=yes
 #source ~/.mailboxes
+virtual-mailboxes "inbox" "notmuch://?query=date:2017-05-01.."
+set nm_db_limit = 100
+macro index <F8> "<vfolder-from-query>"
+macro index <F7> "<vfolder-window-forward>"
+macro index <F6> "<vfolder-window-backward>"
 
-macro index <F8> \
-     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
-     "notmuch: search mail"
-macro index <F9> \
-     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
-     "notmuch: reconstruct thread"
-macro index <F6> \
-     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
-     "notmuch: remove message from inbox"
+##macro index <F8> \
+##     "<enter-command>unset wait_key<enter><shell-escape>notmuch-mutt --prompt search<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter>" \
+##     "notmuch: search mail"
+##macro index <F9> \
+##     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt thread<enter><change-folder-readonly>`echo ${XDG_CACHE_HOME:-$HOME/.cache}/notmuch/mutt/results`<enter><enter-command>set wait_key<enter>" \
+##     "notmuch: reconstruct thread"
+##macro index <F6> \
+##     "<enter-command>unset wait_key<enter><pipe-message>notmuch-mutt tag -inbox<enter>" \
+##     "notmuch: remove message from inbox"
 
 
 set display_filter=addmuttalias
